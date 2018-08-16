@@ -81,10 +81,10 @@ public class ContactDAOImpl implements ContactDAO {
 		return mongoTemplate.findAll(Contact.class, "Contact");
 	}
 
-	public Contact get(String contactId, Contact contact) {
+	public Contact get(String email, Contact contact) {
 		// String sql = "SELECT * FROM contact WHERE contact_id=" + contactId;
 
-		Query query = new Query(Criteria.where("id").is(contactId));
+		Query query = new Query(Criteria.where("id").is(email));
 
 		Update update = new Update();
 		// update.set("id",contact.getId());

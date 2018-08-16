@@ -62,7 +62,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/editContact", method = RequestMethod.GET)
-	public ModelAndView editContact(HttpServletRequest request,Contact contact) {
+	public ModelAndView editContact(HttpServletRequest request,@ModelAttribute Contact contact) {
 		//int contactId = Integer.parseInt(request.getParameter("id"));
 		String email=request.getParameter("id");
 		Contact contact1 = contactDAO.get(email,contact);
@@ -70,7 +70,7 @@ public class HomeController {
 		
 		ModelAndView model = new ModelAndView("ContactForm");
 		model.addObject("contact", contact);
-
+		contactDAO.saveOrUpdate(contact);
 		return model;
 	}
 

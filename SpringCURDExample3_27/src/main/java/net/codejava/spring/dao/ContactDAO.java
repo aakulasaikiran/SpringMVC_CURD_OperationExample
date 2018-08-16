@@ -17,7 +17,7 @@ public interface ContactDAO {
 	
 	  public void delete(String email);
 	  
-	  public Contact get(String contactId,Contact contact);
+	  public Contact get(String email,Contact contact);
 	 
 	public List<Contact> list();
 }
